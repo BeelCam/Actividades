@@ -1,0 +1,13 @@
+var producto = {
+    nombre: "Ejemplo Producto",
+    precio: 19.99,
+    disponible: true
+  };
+  
+  function mostrarProducto(producto) {
+    console.log("Nombre:", producto.nombre);
+    console.log("Precio:", producto.precio);
+    console.log("Disponible:", producto.disponible ? "Sí" : "No");
+  }
+  
+  mostrarProducto(producto);

@@ -1,0 +1,25 @@
+var Clase = {
+    estudiantes: []
+  };
+
+  function agregarEstudiante(nombre, calificaciones) {
+    var nuevoEstudiante = {
+      nombre: nombre,
+      calificaciones: calificaciones
+    };
+    Clase.estudiantes.push(nuevoEstudiante);
+  }
+  
+  function calcularPromedioCalificaciones(calificaciones) {
+    var total = calificaciones.reduce((suma, calificacion) => suma + calificacion, 0);
+    return total / calificaciones.length;
+  }
+  
+  agregarEstudiante("Maria", [85, 90, 78]);
+  agregarEstudiante("Benjamin", [95, 88, 92]);
+  agregarEstudiante("Osvaldo", [70, 60, 75]);
+  
+  Clase.estudiantes.forEach(estudiante => {
+    var promedio = calcularPromedioCalificaciones(estudiante.calificaciones);
+    console.log(`${estudiante.nombre} - Promedio de calificaciones: ${promedio.toFixed(2)}`);
+  });

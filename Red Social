@@ -1,0 +1,27 @@
+var perfil = {
+    nombre: "Ejemplo Nombre",
+    edad: 25,
+    amigos: []
+  };
+  
+  function agregarAmigo(nombre, edad) {
+    var nuevoAmigo = {
+      nombre: nombre,
+      edad: edad
+    };
+    perfil.amigos.push(nuevoAmigo);
+  }
+  
+  function amigoMasJoven(amigos) {
+    var amigoJoven = amigos.reduce((masJoven, amigo) => {
+      return amigo.edad < masJoven.edad ? amigo : masJoven;
+    });
+    return amigoJoven.nombre;
+  }
+  
+  agregarAmigo("Agustina", 23);
+  agregarAmigo("Matias", 30);
+  agregarAmigo("Florencia", 22);
+  
+  var amigoMasJovenNombre = amigoMasJoven(perfil.amigos);
+  console.log("El amigo más joven es:", amigoMasJovenNombre);

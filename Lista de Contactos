@@ -1,0 +1,15 @@
+var contactos = {
+    lista: []
+  };
+  function agregarContacto(nombre, telefono, email) {
+    var nuevoContacto = {
+      nombre: nombre,
+      telefono: telefono,
+      email: email
+    };
+    contactos.lista.push(nuevoContacto);
+  }
+  
+  agregarContacto("Belen", "123456789", "belen@gmail.com");
+  
+  console.log("Cantidad total de contactos:", contactos.lista.length);

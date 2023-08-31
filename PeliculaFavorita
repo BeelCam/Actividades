@@ -1,0 +1,9 @@
+var usuario = {
+    nombre : "Belen Camargo",
+    peliculaFavorita: [{titulo: "Titanic",año :  "1997"},
+                       {titulo: "Avatar", año: "2009"},
+                       {titulo: "Mision Imposible", año: "1996"},
+ ]
+};
+console.log ("Titulo: ", usuario.peliculaFavorita[1].titulo),
+console.log ("Año: ", usuario.peliculaFavorita[1].año);
