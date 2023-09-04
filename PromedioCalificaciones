@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calificaciones de Estudiantes</title> 
+</head>
+<body>
+    <h1>Ingresar Calificaciones de Estudiantes</h1>
+
+    <form id="studentForm">
+        <label for="name1">Nombre del Estudiante 1:</label>
+        <input type="text" id="name1" required><br>
+        <label for="grades1">Calificaciones (separadas por comas):</label>
+        <input type="text" id="grades1" required><br>
+
+        <label for="name2">Nombre del Estudiante 2:</label>
+        <input type="text" id="name2" required><br>
+        <label for="grades2">Calificaciones (separadas por comas):</label>
+        <input type="text" id="grades2" required><br>
+
+        <label for="name3">Nombre del Estudiante 3:</label>
+        <input type="text" id="name3" required><br>
+        <label for="grades3">Calificaciones (separadas por comas):</label>
+        <input type="text" id="grades3" required><br>
+
+        <button type="button" id="calculateButton" onclick="calcularPromedio()">Calcular Promedio</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function calcularPromedio() {
+            const name1 = document.getElementById("name1").value;
+            const name2 = document.getElementById("name2").value;
+            const name3 = document.getElementById("name3").value;
+
+            const grades1 = document.getElementById("grades1").value.split(",").map(Number);
+            const grades2 = document.getElementById("grades2").value.split(",").map(Number);
+            const grades3 = document.getElementById("grades3").value.split(",").map(Number);
+
+            const average1 = calcularPromedioDeCalificaciones(grades1);
+            const average2 = calcularPromedioDeCalificaciones(grades2);
+            const average3 = calcularPromedioDeCalificaciones(grades3);
+
+            const result = `
+                <p>${name1} Promedio de Calificaciones: ${average1.toFixed(2)}</p>
+                <p>${name2} Promedio de Calificaciones: ${average2.toFixed(2)}</p>
+                <p>${name3} Promedio de Calificaciones: ${average3.toFixed(2)}</p>
+            `;
+
+            document.getElementById("result").innerHTML = result;
+            document.getElementById("calculateButton").disabled = true;
+        }
+
+        function calcularPromedioDeCalificaciones(grades) {
+            const sum = grades.reduce((total, grade) => total + grade, 0);
+            return sum / grades.length;
+        }
+    </script>
+</body>
+</html>
